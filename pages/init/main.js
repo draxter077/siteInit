@@ -5,7 +5,7 @@ export default function init(){
             width: 100%;
         }`
 
-    const init = createElementToPage(undefined, "div", style)
+    const init = cE("div", style)
     init.innerHTML = "bem-vindo"
     return(init)
 }

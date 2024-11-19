@@ -1,6 +1,6 @@
 import construct from "./pages/construct.js"
 
-window.createElementToPage = function createElementToPage(n, t, stl){
+window.cE = function cE(t, stl){
     function addClass(){
         function randomName(names){
             const chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
@@ -24,29 +24,30 @@ window.createElementToPage = function createElementToPage(n, t, stl){
             return(name)
         }
 
+        // Formata os styles já adicionados à tag style
         let stylesTag = document.getElementsByTagName("style")[0].innerHTML
         let styles = stylesTag
                         .replaceAll("\n", "")
                         .replaceAll("  ", "")
-                        .split("}")
+                        .split("}") // Retorna array com elementos do tipo .nome{atr: value,...
 
-        let stylesGotten = stl.split("}")
-        stl = stylesGotten[0] + "}"
+        let stylesGotten = stl.split("}") // Retorna array com elementos do tipo {atr: value,...
+        stl = stylesGotten[0] + "}" // O primeiro estilo tem a chave fechada
         let style = stylesGotten[0]
                         .replaceAll("\n", "")
                         .replaceAll("  ", "")
                         .replace("{", "")
                         .replace("}", "")
-                        .split(";")
+                        .split(";") // Retorna uma array com elementos 'atr: value', ....
         let stylesNames = []
         let stylesNamesObject = []
         let styleAtr = []
         for(let i = 0; i < styles.length; i++){
-            let s = styles[i].split("{")
+            let s = styles[i].split("{") // Divide em nome e atributos os estilos da tag
             let n = s[0]
             let b = s[1]
             if(n[0] == "."){
-                stylesNames.push(n)
+                stylesNames.push(n) // adiciona a uma lista de nomes de estilos já criados se não for um estilo de tag html
             }
             if(b != undefined && b != ""){
                 let bs = b.split(";")
@@ -57,36 +58,33 @@ window.createElementToPage = function createElementToPage(n, t, stl){
                         atrValues.push([ats[0], ats[1]])
                     }
                 }
-                stylesNamesObject.push([n, atrValues])
+                stylesNamesObject.push([n, atrValues]) // Adiciona a uma lista de estilos o nome e sua lista de atributos, formatada acima
             }
         }
         for(let j = 0; j < style.length; j++){
             let s = style[j].split(": ")
             if (s[0] != ""){
-                styleAtr.push([s[0], s[1]])
+                styleAtr.push([s[0], s[1]]) // Cria uma lista com os atributos do estilo fornecido
             }
         }
         
-        const el = document.createElement(t)
         let className = ""
-        if(n == undefined){
-            for(let k = 0; k < stylesNamesObject.length; k++){
-                let sN = stylesNamesObject[k]
-                let es = 0;
-                for(let l = 0; l < sN[1].length; l++){
-                    let atrN = sN[1][l][0]
-                    let atrA = sN[1][l][1]
-                    for(let m = 0; m < styleAtr.length; m++){
-                        if(styleAtr[m][0] == atrN && styleAtr[m][1] == atrA){
-                            es += 1
-                            break
+        for(let k = 0; k < stylesNamesObject.length; k++){ // Para cada estilo já criado, verifica se pode reutilizar o nome
+            let sN = stylesNamesObject[k]
+            let es = 0;
+            for(let l = 0; l < sN[1].length; l++){
+                let atrN = sN[1][l][0]
+                let atrA = sN[1][l][1]
+                for(let m = 0; m < styleAtr.length; m++){
+                    if(styleAtr[m][0] == atrN && styleAtr[m][1] == atrA){
+                        es += 1
+                        break
                         }
-                    }
-                }   
-                if(es == styleAtr.length && es == sN[1].length){
-                    className = sN[0].replace(".", "")
-                    break
                 }
+            }   
+            if(es == styleAtr.length && es == sN[1].length){
+                className = sN[0].replace(".", "")
+                break
             }
         }
         if(className == ""){
