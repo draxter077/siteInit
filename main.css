@@ -12,6 +12,7 @@ figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video, button, input, textarea {
 	display: block;
+	background: none;
 	margin: 0px;
 	padding: 0px;
 	border: none;
@@ -26,6 +27,10 @@ time, mark, audio, video, button, input, textarea {
 }
 input:focus, button:focus{
 	outline: none;
+	border: none;
+}
+button{
+	cursor: pointer;
 }
 body {
 	line-height: 1.3;
