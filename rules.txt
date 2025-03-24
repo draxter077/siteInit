@@ -1,6 +1,0 @@
-1) Write CSS styles in JS with two indentations from left
-2) Always disable a button after click and renable it after click related function is executed
-3) Element function comes first in its file; after it the functions are put in order of appearance
-4) page Always with cursor default
-5) every button has cursor pointer
-6) think twice of box shadow as :hover

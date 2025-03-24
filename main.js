@@ -30,7 +30,7 @@ window.cE = function cE(t, stl){
                         .replaceAll("\n", "")
                         .replaceAll("  ", "")
                         .split("}") // Retorna array com elementos do tipo .nome{atr: value,...
-
+        // Formata o style do argumento
         let stylesGotten = stl.split("}") // Retorna array com elementos do tipo {atr: value,...
         stl = stylesGotten[0] + "}" // O primeiro estilo tem a chave fechada
         let style = stylesGotten[0]
@@ -39,9 +39,11 @@ window.cE = function cE(t, stl){
                         .replace("{", "")
                         .replace("}", "")
                         .split(";") // Retorna uma array com elementos 'atr: value', ....
+        // Cria e popula arrays relevantes
         let stylesNames = []
         let stylesNamesObject = []
         let styleAtr = []
+        // Adiciona o nome e os atributos dos styles criados
         for(let i = 0; i < styles.length; i++){
             let s = styles[i].split("{") // Divide em nome e atributos os estilos da tag
             let n = s[0]
@@ -61,13 +63,14 @@ window.cE = function cE(t, stl){
                 stylesNamesObject.push([n, atrValues]) // Adiciona a uma lista de estilos o nome e sua lista de atributos, formatada acima
             }
         }
+        // Adiciona os atributos do style do argumento
         for(let j = 0; j < style.length; j++){
             let s = style[j].split(": ")
             if (s[0] != ""){
                 styleAtr.push([s[0], s[1]]) // Cria uma lista com os atributos do estilo fornecido
             }
         }
-        
+        // Verifica se existe algum estilo com os mesmos atributos
         let className = ""
         for(let k = 0; k < stylesNamesObject.length; k++){ // Para cada estilo já criado, verifica se pode reutilizar o nome
             let sN = stylesNamesObject[k]
@@ -87,6 +90,7 @@ window.cE = function cE(t, stl){
                 break
             }
         }
+        // Caso não tenha adicionado nome (ou seja, não foi encontrado estilo com atributos similares), adiciona-se
         if(className == ""){
             className = randomName(stylesNames)
             document.getElementsByTagName("style")[0].innerHTML += `.${className}${stl.replaceAll("\n", "").replaceAll("  ","")}`
@@ -96,6 +100,9 @@ window.cE = function cE(t, stl){
                 let insA = inst.split("{")[1]
                 if(insN == ":responsive"){
                     document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width: 1000px){.${className}{${insA.replaceAll("\n", "").replaceAll("  ","")}}}`
+                }
+                else if(insN.split(" ")[0] == "@keyframes"){
+                    document.getElementsByTagName("style")[0].innerHTML += `${insN}{${insA.replaceAll("\n", "").replaceAll("  ","")}}`
                 }
                 else if(insN != undefined && insN != ""){
                     document.getElementsByTagName("style")[0].innerHTML += `.${className}${insN}{${insA.replaceAll("\n", "").replaceAll("  ","")}}`
