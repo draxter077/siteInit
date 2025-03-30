@@ -1,4 +1,4 @@
-import construct from "./pages/construct.js"
+import main from "./pages/main/main.js"
 
 window.cE = function cE(t, stl){
     function addClass(){
@@ -101,8 +101,8 @@ window.cE = function cE(t, stl){
                 if(insN == ":responsive"){
                     document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width: 1000px){.${className}{${insA.replaceAll("\n", "").replaceAll("  ","")}}}`
                 }
-                else if(insN.split(" ")[0] == "@keyframes"){
-                    document.getElementsByTagName("style")[0].innerHTML += `${insN}{${insA.replaceAll("\n", "").replaceAll("  ","")}}`
+                else if(insN.split(" ")[0] == "@keyframes"){ // Em vez de { e }, será usado [ e ] no argumento
+                    document.getElementsByTagName("style")[0].innerHTML += `${insN}{${insA.replaceAll("\n", "").replaceAll("  ","").replaceAll("[", "{").replaceAll("]", "}")}}`
                 }
                 else if(insN != undefined && insN != ""){
                     document.getElementsByTagName("style")[0].innerHTML += `.${className}${insN}{${insA.replaceAll("\n", "").replaceAll("  ","")}}`
@@ -119,6 +119,20 @@ window.cE = function cE(t, stl){
     return(el)
 }
 
-axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
-document.getElementsByTagName("head")[0].appendChild(document.createElement("style"))
+window.construct = function construct(p){
+    const root = document.getElementById("root")
+    root.innerHTML = ""
+    const atts = window.location.href.split("?")[1] // domain/?/p1/p2/p3...
+    if(p == undefined){
+        if(atts != undefined){
+            const paths = atts.split("/") // paths[0] == null
+            root.innerHTML = atts
+        }
+        else{
+            root.appendChild(main())
+        }
+    }
+}
+
+//axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 construct()
