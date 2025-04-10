@@ -122,17 +122,19 @@ window.cE = function cE(t, stl){
 window.construct = function construct(p){
     const root = document.getElementById("root")
     root.innerHTML = ""
-    const atts = window.location.href.split("?")[1] // domain/?/p1/p2/p3...
     if(p == undefined){
-        if(atts != undefined){
-            const paths = atts.split("/") // paths[0] == null
-            root.innerHTML = atts
+        if(window.location.href.split("br/")[1] != undefined){
+            let paths = window.location.href.split("br/")[1].split("/")
+            //if(paths[0] == "teste"){}
+            root.innerHTML = paths
         }
         else{
             root.appendChild(main())
         }
     }
 }
+
+//window.apiURL = ""
 
 //axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 document.getElementsByTagName("head")[0].appendChild(document.createElement("style"))

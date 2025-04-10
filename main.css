@@ -55,9 +55,6 @@ table {
 	--colorBlack: rgb(0, 0, 0);
 	--transitionTime: 0.5s;
 	--animationDelay0: 0s;
-	--animationDelay1: 0.5s;
-	--animationDelay2: 1s;
-	--animationDelay3: 1.5s;
 }
 body{
 	box-sizing: border-box;
