@@ -25,6 +25,9 @@ time, mark, audio, video, button, input, textarea {
 	-webkit-tap-highlight-color: transparent;
 	box-sizing: border-box;
 }
+span{
+	display:inline-block;
+}
 input:focus, button:focus{
 	outline: none;
 	border: none;
