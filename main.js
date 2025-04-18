@@ -147,7 +147,7 @@ document.getElementsByTagName("style")[0].innerHTML += `
     font-size: 100%;font: inherit;vertical-align: baseline;text-decoration: none;font-weight: none;outline: none;
     -webkit-tap-highlight-color: transparent;box-sizing: border-box;}
     span{display:inline-block;}
-    input:focus, button:focus{outline: none;border: none;}
+    input:focus, button:focus{outline: none;border: auto;}
     button{cursor: pointer;}
     body {line-height: 1.3;}
     ol, ul {list-style: none;}
@@ -164,7 +164,7 @@ document.getElementsByTagName("style")[0].innerHTML += `
     body{
     	box-sizing: border-box;
     	font-family: system-ui;
-    	color: var(--colorBlack);
+    	background: var(--colorBlack);
     	cursor: default;
     }
     ::-webkit-scrollbar{
