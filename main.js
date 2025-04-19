@@ -174,14 +174,15 @@ document.getElementsByTagName("style")[0].innerHTML += `
     }
     ::-webkit-scrollbar-track{
         background: none;
-    	margin: 10px 0px;
+    	margin: 0px;
     }
     ::-webkit-scrollbar-thumb{
         background: var(--colorBlack);
         border-radius: 20px;
     }
     ::-webkit-scrollbar-button{
-        height: 10px;
+        height: 0px;
+	width: 0px;
     	background: none;
         padding: 0px;
         margin: 0px;
