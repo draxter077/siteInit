@@ -166,6 +166,7 @@ document.getElementsByTagName("style")[0].innerHTML += `
     	font-family: system-ui;
     	background: var(--colorBlack);
     	cursor: default;
+	user-select: none;
     }
     ::-webkit-scrollbar{
     	height: 3px;
