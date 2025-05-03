@@ -90,8 +90,18 @@ window.cE = function cE(t, stl){
                 break
             }
         }
+
+        if(t == "root"){
+            document.getElementsByTagName("style")[0].innerHTML += `.${className}${stl.replaceAll("\n", "").replaceAll("  ","")}`
+            for(let p = 1; p < stylesGotten.length; p++){
+                let inst = stylesGotten[p]
+                let insN = inst.split("{")[0].replaceAll("\n", "").replaceAll("  ", "")
+                let insA = inst.split("{")[1]
+                if(insA != undefined){document.getElementsByTagName("style")[0].innerHTML += `${insN}{${insA.replaceAll("\n", "").replaceAll("  ","")}}`}
+            }
+        }
         // Caso não tenha adicionado nome (ou seja, não foi encontrado estilo com atributos similares), adiciona-se
-        if(className == ""){
+        else if(className == ""){
             className = randomName(stylesNames)
             document.getElementsByTagName("style")[0].innerHTML += `.${className}${stl.replaceAll("\n", "").replaceAll("  ","")}`
             for(let p = 1; p < stylesGotten.length; p++){
@@ -138,14 +148,25 @@ window.construct = function construct(p){
 
 //axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 document.getElementsByTagName("head")[0].appendChild(document.createElement("style"))
-document.getElementsByTagName("style")[0].innerHTML += `
-    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
-    big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
-    dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, 
-    aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-    time, mark, audio, video, button, input, textarea {display: block;background: none;margin: 0px;padding: 0px;border: none;
-    font-size: 100%;font: inherit;vertical-align: baseline;text-decoration: none;font-weight: none;outline: none;
-    -webkit-tap-highlight-color: transparent;box-sizing: border-box;}
+cE("root", `html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big, 
+    cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,
+    dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article, 
+    aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,
+    time,mark,audio,video,button,input,textarea{
+        display:block;
+        background:none;
+        margin:0px;
+        padding:0px;
+        border:none;
+        font-size:100%;
+        font:inherit;
+        vertical-align:baseline;
+        text-decoration:none;
+        font-weight:none;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+    }
     span{display:inline-block;}
     input:focus, button:focus{outline: none;border: auto;}
     button{cursor: pointer;}
@@ -154,39 +175,38 @@ document.getElementsByTagName("style")[0].innerHTML += `
     blockquote, q {quotes: none;}
     blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
     table {border-collapse: collapse;border-spacing: 0;}
-
     :root{
-    	--colorWhite: rgb(255, 255, 255);
-    	--colorBlack: rgb(0, 0, 0);
-    	--transitionTime: 0.5s;
-    	--animationDelay0: 0s;
+    	--colorWhite:rgb(255, 255, 255);
+    	--colorBlack:rgb(0, 0, 0);
+    	--transitionTime:0.5s;
+    	--animationDelay0:0s;
     }
     body{
-    	box-sizing: border-box;
-    	font-family: system-ui;
-    	background: var(--colorBlack);
-    	cursor: default;
-	user-select: none;
+    	box-sizing:border-box;
+    	font-family:system-ui;
+    	background:var(--colorBlack);
+    	cursor:default;
+	    user-select:none;
     }
     ::-webkit-scrollbar{
-    	height: 3px;
-        width: 3px;
-    	background: none;
+    	height:3px;
+        width: px;
+    	background:none;
     }
     ::-webkit-scrollbar-track{
-        background: none;
-    	margin: 0px;
+        background:none;
+    	margin:0px;
     }
     ::-webkit-scrollbar-thumb{
-        background: var(--colorBlack);
-        border-radius: 20px;
+        background:var(--colorBlack);
+        border-radius:20px;
     }
     ::-webkit-scrollbar-button{
-        height: 0px;
-	    width: 0px;
-    	background: none;
-        padding: 0px;
-        margin: 0px;
-    }`
+        height:0px;
+	    width:0px;
+    	background:none;
+        padding:0px;
+        margin:0px;
+    }`)
     
 construct()

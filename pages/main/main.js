@@ -6,7 +6,7 @@ export default function main(){
             position:relative;
             width:100%;
             height:100dvh;
-	    overflow:hidden;
+	        overflow:hidden;
         }`
 
     const main = cE("div", style)
