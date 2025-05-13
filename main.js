@@ -190,7 +190,7 @@ cE("root", `html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquo
     }
     ::-webkit-scrollbar{
     	height:3px;
-        width: px;
+        width:3px;
     	background:none;
     }
     ::-webkit-scrollbar-track{
