@@ -11,8 +11,6 @@ export default function main(){
 
     const main = cE("div", style)
     main.appendChild(logo())
-
-    console.log(secrets.API_KEY)
     console.log(process.env.API_KEY)
     return(main)
 }
