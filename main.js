@@ -191,13 +191,13 @@ window.construct = function construct(p){
         }
     }
     // else{
-    // history.pushState({}, "", p.page);
+    //     history.pushState({}, "", p.page);
     //     if(p.page == "type1"){root.appendChild(type1(p.data))}
     //     else if(p.page == "type2"){root.appendChild(type2(p.data))}
     // }
 }
 
-//window.api_url = ""
+//window.api_url = "https://ace-chimp-merry.ngrok-free.app/name"
 //axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 
 construct()
