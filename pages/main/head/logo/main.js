@@ -9,5 +9,6 @@ export default function logo(){
 
     const logo = cE("div",style)
     logo.innerHTML = "LOGO"
+    logo.alt = "Logotipo da nomeEmpresa"
     return(logo)
 }

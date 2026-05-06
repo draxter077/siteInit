@@ -18,9 +18,9 @@ const resetCss = `
         vertical-align:baseline;
         text-decoration:none;
         font-weight:none;
-        outline: none;
-        -webkit-tap-highlight-color: transparent;
-        box-sizing: border-box;
+        outline:none;
+        -webkit-tap-highlight-color:transparent;
+        box-sizing:border-box;
     }
     span{
         display:inline-block;
@@ -28,9 +28,6 @@ const resetCss = `
     input:focus,button:focus{
         outline:none;
         border:auto;
-    }
-    button{
-        cursor:pointer;
     }
     ol,ul{
         list-style:none;
@@ -49,12 +46,11 @@ const resetCss = `
     :root{
     	--colorWhite:rgb(245,245,245);
     	--colorBlack:rgb(20,20,20);
-        --colorBlue:rgb(50,150,200);
     }
-    /* @font-face{
-        font-family:"Font";
-        src:url("./assets/font/Teste-Book.otf");
-    } */
+    @font-face{
+        font-family:"Garet";
+        src:url("https://www.ph.net.br/assets/font/Garet-Book.otf");
+    }
     body{
     	box-sizing:border-box;
     	font-family:system-ui;
@@ -62,7 +58,7 @@ const resetCss = `
     	cursor:default;
 	    user-select:none;
         line-height:1.3;
-        width:100dvw;
+        width:100%;
     }
     ::-webkit-scrollbar{
     	height:3px;
@@ -90,8 +86,7 @@ window.cE = function cE(t, stl){
     function addClass(){
         function randomName(names){
             const chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
-                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
                         ]
             let name = ""
             while(name == ""){
@@ -121,16 +116,19 @@ window.cE = function cE(t, stl){
         let classNamesInTag = []
         let classAtrsInTag = []
         for(let i = 0; i < stylesInTag.length; i++){
-            classNamesInTag.push(stylesInTag[i].split("{")[0].replaceAll(".",""))
-            classAtrsInTag.push(stylesInTag[i].split("{")[1])
+            try{
+                classAtrsInTag.push(stylesInTag[i].split("{")[1].replaceAll(";",""))
+                classNamesInTag.push(stylesInTag[i].split("{")[0].replaceAll(".",""))
+            }catch{}
         }
+
         // Compara o geral, -1 para não pegar o último elemento vazio
         for(let i = 0; i < stls.length - 1; i++){
             let boo = classAtrsInTag.indexOf(stls[i])
             if(boo != -1){classNames += ` ${classNamesInTag[boo]}`}
             else{
                 let cn = randomName(classNamesInTag)
-                document.getElementsByTagName("style")[0].innerHTML += `.${cn}{${stls[i]}}`
+                document.getElementsByTagName("style")[0].innerHTML += `.${cn}{${stls[i]};}`
                 classNames += ` ${cn}`
             }
         }
@@ -146,7 +144,7 @@ window.cE = function cE(t, stl){
                     let stlsR = spec.split("{")[1].split(";")
                     for(let k = 0; k < stlsR.length - 1; k++){
                         let cn = randomName(classNamesInTag)
-                        document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width:1000px){.${cn}{${stlsR[k]}}}`
+                        document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width:1000px){.${cn}{${stlsR[k]};}}`
                         classNames += ` ${cn}`
                     }
                 }
@@ -155,7 +153,7 @@ window.cE = function cE(t, stl){
                     let stlsX = spec.split("{")[1].split(";")
                     for(let k = 0; k < stlsX.length - 1; k++){
                         let cn = randomName(classNamesInTag)
-                        document.getElementsByTagName("style")[0].innerHTML += `.${cn}:${xPseudo}{${stlsX[k]}}`
+                        document.getElementsByTagName("style")[0].innerHTML += `.${cn}:${xPseudo}{${stlsX[k]};}`
                         classNames += ` ${cn}`
                     }
                 }
