@@ -13,12 +13,20 @@ export default function main(){
         "name":"Ph Web Software",
         "alternateName":"Ph",
         "url":"https://www.ph.net.br",
-        "logo":"https://www.ph.net.br/logo.jpg",
+        "logo":"https://www.ph.net.br/assets/logo.jpg",
+        "image":"https://www.ph.net.br/assets/logo.jpg",
         "email":"contato@ph.net.br",
         "telephone":"+55 (41) 99171-8360",
         "slogan":"Transformamos sua ideia em uma realidade no mundo digital",
         "description":"Uma empresa focada em desenvolvimento web",
         "areaServed":"BRA",
+        "address":{
+            "@type":"PostalAddress",
+            "streetAddress":"Rua Atílio Bório, 80",
+            "addresLocality":"Curitiba",
+            "addressRegion":"Paraná",
+            "addressCountry":"BRA"
+        },
         "sameAs":[
             "https://www.ph.net.br",
             "https://www.instagram.com/phwebsoftware"
