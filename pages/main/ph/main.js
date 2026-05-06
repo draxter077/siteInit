@@ -1,5 +1,6 @@
 import text from "./text/main.js"
 import logo from "./logo/main.js"
+import { randomName } from "../../../main.js"
 
 export default function ph(){
     let style = `
@@ -10,24 +11,45 @@ export default function ph(){
             justify-content:center;
             width:100%;
             padding:10px 15px;
-            background:linear-gradient(45deg, rgb(50,150,250) 10%, rgb(240,240,240) 15%, rgb(50,150,250) 20%);
-            background-size:200%;
+            background:linear-gradient(90deg,rgb(56,182,255) 40%,var(--colorBlack) 50%);
+            background-size:300%;
             background-position:100%;
+            transition:background-position 1s;
             cursor:pointer;
-            box-shadow:0px 0px 2px 1px rgb(50,150,250);
-        }
-        :hover{
-            animation:slide 0.66s linear 0s 1 forwards;
-        }
-        @keyframes slide{
-            0%[background-position:100%;]
-            100%[background-position:-100%;]
         }`
 
     const ph = cE("a",style)
     ph.href = "https://www.ph.net.br"
     ph.target = "_blank"
+    ph.id = randomName([])
     ph.appendChild(text())
     ph.appendChild(logo())
+
+    window.addEventListener(
+        "scroll",
+        function a(){
+            const p = document.getElementById(ph.id)
+            if(window.scrollY + window.innerHeight >= p.offsetTop + p.offsetHeight){
+                ph.style.backgroundPosition = "0%"
+                window.removeEventListener("scroll", a)
+            }
+        }
+    )
+
+    ph.addEventListener(
+        "mouseover",
+        function a(){
+            ph.children[1].style.transform = "scale(1.1)"
+            ph.removeEventListener("mouseover", a)
+            ph.addEventListener(
+                "mouseout",
+                function b(){
+                    ph.children[1].style.transform = "scale(1)"
+                    ph.removeEventListener("mouseout", b)
+                    ph.addEventListener("mouseover", a)
+                }
+            )
+        }
+    )
     return(ph)
 }

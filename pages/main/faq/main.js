@@ -7,6 +7,7 @@ export default function faq(){
         }`
 
     const faq = cE("div",style)
+    faq.id = "faq"
     faq.innerHTML = "FAQ"
     return(faq)
 }

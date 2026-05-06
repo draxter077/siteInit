@@ -7,6 +7,7 @@ export default function services(){
         }`
 
     const services = cE("div",style)
+    services.id = "services"
     services.innerHTML = "Services"
     return(services)
 }

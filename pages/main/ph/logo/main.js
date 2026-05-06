@@ -3,6 +3,8 @@ export default function logo(){
         {
             height:35px;
             border-radius:5px;
+            border:1px solid var(--colorWhite);
+            transition:transform 0.33s;
         }`
 
     const logo = cE("img",style)

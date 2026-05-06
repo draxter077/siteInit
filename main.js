@@ -1,5 +1,25 @@
 import main from "./pages/main/main.js"
 
+export function randomName(names){
+    const chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
+                "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+            ]
+    let name = ""
+    while(name == ""){
+        for(let k = 0; k < 5; k++){
+            let n = Math.floor((chars.length)*Math.random())
+            name += chars[n]
+        }
+        for(let l = 0; l < names.length; l++){
+            if(name == names[l]){
+                name = ""
+                break
+            }
+        }
+    }
+    return(name)
+}
+
 // Cria a style tag e a popula com reset.css
 document.getElementsByTagName("head")[0].appendChild(document.createElement("style"))
 const resetCss = `
@@ -21,6 +41,9 @@ const resetCss = `
         outline:none;
         -webkit-tap-highlight-color:transparent;
         box-sizing:border-box;
+    }
+    html {
+        scroll-behavior:smooth;
     }
     span{
         display:inline-block;
@@ -84,25 +107,6 @@ document.getElementsByTagName("style")[0].innerHTML = resetCss.replaceAll("\n","
 
 window.cE = function cE(t, stl){
     function addClass(){
-        function randomName(names){
-            const chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
-                            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-                        ]
-            let name = ""
-            while(name == ""){
-                for(let k = 0; k < 5; k++){
-                    let n = Math.floor((chars.length)*Math.random())
-                    name += chars[n]
-                }
-                for(let l = 0; l < names.length; l++){
-                    if(name == names[l]){
-                        name = ""
-                        break
-                    }
-                }
-            }
-            return(name)
-        }
         let classNames = "", types = 0, stls = []
         stl = stl.replaceAll("\n","").replaceAll("\t","").replaceAll("  ","").replaceAll(", ",",") // Formata o stl recebido
         // Encontra os tipos (geral, :responsive, :hover...) encontrados no stl
@@ -147,6 +151,11 @@ window.cE = function cE(t, stl){
                         document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width:1000px){.${cn}{${stlsR[k]};}}`
                         classNames += ` ${cn}`
                     }
+                }
+                else if(spec.split("{")[0].split("::").length > 0){ // CONTINUAR DESENVOLVENDO
+                    let cn = randomName(classNamesInTag)
+                    document.getElementsByTagName("style")[0].innerHTML += `.${cn}${spec}}`
+                    classNames += ` ${cn}`
                 }
                 else if(spec.split("{")[0].split(":").length > 1){ // CONTINUAR DESENVOLVENDO
                     let xPseudo = spec.split("{")[0].split(":")[1]

@@ -14,6 +14,10 @@ export default function head(){
             width:100%;
             padding:10px 15px;
             background:var(--colorWhite);
+            box-shadow:0px 0px 2px 1px var(--colorBlack);
+        }
+        :responsive{
+            flex-direction:column;
         }`
 
     const head = cE("div",style)

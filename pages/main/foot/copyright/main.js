@@ -7,6 +7,6 @@ export default function copyright(){
         }`
 
     const copyright = cE("div",style)
-    copyright.innerHTML = `${window.location.href.split("//")[1].split("/")[0]} © ${new Date().getFullYear()}. Todos os direitos reservados`
+    copyright.innerHTML = `${window.location.href.split("//")[1].split("/")[0]} © ${new Date().getFullYear()} Todos os direitos reservados`
     return(copyright)
 }
