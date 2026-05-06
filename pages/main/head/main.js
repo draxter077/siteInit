@@ -6,6 +6,7 @@ export default function head(){
         {
             position:sticky;
             top:0%;
+            z-index:5;
             
             display:flex;
             flex-direction:row;

@@ -1,7 +1,7 @@
 export default function outdoor(){
     let style = `
         {
-            width:100%;
+            width:90%;
             height:50dvh;
             background:red;
         }`

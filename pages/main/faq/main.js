@@ -1,7 +1,7 @@
 export default function faq(){
     let style = `
         {
-            width:100%;
+            width:90%;
             height:33dvh;
             background:green;
         }`
