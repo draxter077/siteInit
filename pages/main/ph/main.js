@@ -14,8 +14,11 @@ export default function ph(){
             background:linear-gradient(90deg,rgb(56,182,255) 40%,var(--colorBlack) 50%);
             background-size:300%;
             background-position:100%;
-            transition:background-position 1s;
+            transition:all 1s;
             cursor:pointer;
+        }
+        :responsive{
+            background:rgb(56,182,255);
         }`
 
     const ph = cE("a",style)
@@ -30,7 +33,7 @@ export default function ph(){
         function a(){
             const p = document.getElementById(ph.id)
             if(window.scrollY + window.innerHeight >= p.offsetTop + p.offsetHeight){
-                ph.style.backgroundPosition = "0%"
+                p.style = "background-position:0%;"
                 window.removeEventListener("scroll", a)
             }
         }
