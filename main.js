@@ -77,7 +77,7 @@ const resetCss = `
     body{
     	box-sizing:border-box;
     	font-family:system-ui;
-    	background:var(--colorBlack);
+    	background:var(--colorWhite);
     	cursor:default;
 	    user-select:none;
         line-height:1.3;
@@ -181,10 +181,10 @@ window.construct = function construct(p){
     root.innerHTML = ""
     if(p == undefined){
         if(window.location.href.split("br/")[1] != undefined && window.location.href.split("br/")[1] != ""){
-            let paths = window.location.href.split("br/")[1].split("/")
+            let path = window.location.href.split("br/")[1]
             // if(paths[0] == "teste"){root.appendChild()}
             // else{root.appendChild(main())}
-            root.innerHTML = paths
+            root.innerHTML = path
         }
         else{
             root.appendChild(main())
