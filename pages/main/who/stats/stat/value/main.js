@@ -17,11 +17,11 @@ export default function value(v){
         async function a(){
             let e = document.getElementById(value.id)
             if(window.scrollY > e.offsetTop - window.innerHeight){
+                window.removeEventListener("scroll",a)
                 for(let i = 0; i <= v; i++){
                     value.innerHTML = `+${i}`
                     await new Promise(r => setTimeout(r, 2000/v));
                 }
-                this.window.removeEventListener("scroll",a)
             }
         }
     )
