@@ -14,7 +14,7 @@ export default function outdoor(){
         }
         :responsive{
             width:95%;
-            padding:30% 0px;
+            padding:20% 0px;
         }`
 
     const outdoor = cE("div",style)

@@ -75,6 +75,7 @@ const resetCss = `
     }
     @font-face{
         font-family:"Garet";
+        font-display:swap;
         src:url("https://www.ph.net.br/assets/font/Garet-Book.otf");
     }
     body{
@@ -199,13 +200,14 @@ window.construct = function construct(d){
     }
     // else{
     //     if(d.page == "client"){root.appendChild(client(d.data))}
+    //     if(d.page == "admin"){root.appendChild(admin(d.data))}
     // }
 }
 
-window.api_url = "https://ace-chimp-merry.ngrok-free.app/"
+window.api_url = "https://ace-chimp-merry.ngrok-free.app/ph"
 window.whatsapp_url = "https://wa.me"
 window.instagram_url = "https://www.instagram.com/phwebsoftware"
-// axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
+//axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 
 construct()
 

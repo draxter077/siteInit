@@ -25,7 +25,8 @@ export default function link(n,id){
             transition:width 0.25s;
         }
         :hover::after{
-            width:5px;
+            width:100%;
+            background:var(--colorDarkerBlue);
         }`
 
     const link = cE("div",style)

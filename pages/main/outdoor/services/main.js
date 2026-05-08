@@ -11,7 +11,10 @@ export default function services(){
             padding:10px 15px;
             border-radius:10px;
             box-shadow:0px 0px 3px 0px var(--colorBlue);
-            margin:7.5% 0px 0px 0px;
+            margin:5% 0px 0px 0px;
+        }
+        :responsive{
+            margin:10% 0px 0px 0px;
         }`
 
     const services = cE("div",style)

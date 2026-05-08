@@ -19,5 +19,6 @@ export default function links(){
     links.appendChild(link("Sobre", "who"))
     links.appendChild(link("Soluções", "services"))
     links.appendChild(link("Resultado", "method"))
+    links.appendChild(link("FAQ", "faq"))
     return(links)
 }

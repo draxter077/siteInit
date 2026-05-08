@@ -2,7 +2,8 @@ export default function logo(){
     let style = `
         {
             width:10%;
-            box-shadow:0px 0px 3px 0px var(--colorBlue);
+            box-shadow:0px 0px 3px 0px var(--colorWhite);
+            border:5px solid var(--colorWhite);
         }
         :responsive{
             display:none;

@@ -14,10 +14,10 @@ export default function scroll(){
     
     let svs = ["otimizados para Google",
         "focados em UX",
-        "com geração de leads",
+        "para geração de leads",
         "com design responsivo",
         "leves e rápidos",
-        "com tráfego orgânico",
+        "para tráfego orgânico",
         "como você precisava"
     ]
     for(let i = 0; i < svs.length; i++){
