@@ -1,13 +1,18 @@
+import about from "./about/main.js"
+import stats from "./stats/main.js"
+
 export default function who(){
     let style = `
         {
-            width:90%;
-            height:33dvh;
-            background:purple;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            width:100%;
         }`
 
     const who = cE("div",style)
     who.id = "who"
-    who.innerHTML = "Quem sou eu"
+    who.appendChild(about())
+    who.appendChild(stats())
     return(who)
 }

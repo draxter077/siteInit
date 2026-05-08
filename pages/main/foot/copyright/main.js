@@ -3,10 +3,10 @@ export default function copyright(){
         {
             font-size:15px;
             color:var(--colorWhite);
-            padding:15px;
+            margin:20px 0px 0px 0px;
         }`
 
     const copyright = cE("div",style)
-    copyright.innerHTML = `BusinessName © ${new Date().getFullYear()} Todos os direitos reservados`
+    copyright.innerHTML = `Ph Web Software © ${new Date().getFullYear()} Todos os direitos reservados`
     return(copyright)
 }

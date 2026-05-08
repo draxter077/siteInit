@@ -69,6 +69,9 @@ const resetCss = `
     :root{
     	--colorWhite:rgb(245,245,245);
     	--colorBlack:rgb(20,20,20);
+        --colorBlue:rgb(56,182,255);
+        --colorDarkerBlue:rgb(20,30,40);
+        --colorGreenWhatsApp:rgb(37,211,102);
     }
     @font-face{
         font-family:"Garet";
@@ -76,8 +79,8 @@ const resetCss = `
     }
     body{
     	box-sizing:border-box;
-    	font-family:system-ui;
-    	background:var(--colorWhite);
+    	font-family:"Garet";
+    	background:var(--colorBlack);
     	cursor:default;
 	    user-select:none;
         line-height:1.3;
@@ -176,28 +179,82 @@ window.cE = function cE(t, stl){
     return(el)
 }
 
-window.construct = function construct(p){
+window.construct = function construct(d){
     const root = document.getElementById("root")
     root.innerHTML = ""
-    if(p == undefined){
+    if(d == undefined){
         if(window.location.href.split("br/")[1] != undefined && window.location.href.split("br/")[1] != ""){
             let path = window.location.href.split("br/")[1]
-            // if(paths[0] == "teste"){root.appendChild()}
-            // else{root.appendChild(main())}
-            root.innerHTML = path
+            root.innerHTML=path
+            // if(path.split("?")[0] == "finalizarpagamento"){
+            //     root.appendChild(finalizarpagamento(path.split("?")[1].split("&")[0]))
+            // }
+            // else{
+            //     root.appendChild(main())
+            // }
         }
         else{
             root.appendChild(main())
         }
     }
     // else{
-    //     history.pushState({}, "", p.page);
-    //     if(p.page == "type1"){root.appendChild(type1(p.data))}
-    //     else if(p.page == "type2"){root.appendChild(type2(p.data))}
+    //     if(d.page == "client"){root.appendChild(client(d.data))}
     // }
 }
 
-//window.api_url = "https://ace-chimp-merry.ngrok-free.app/name"
-//axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
+window.api_url = "https://ace-chimp-merry.ngrok-free.app/"
+window.whatsapp_url = "https://wa.me"
+window.instagram_url = "https://www.instagram.com/phwebsoftware"
+// axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
+
+window.stringifyNumber = function stringifyNumber(n){
+    let numberParts = n.toString().split(".")
+    let integerPart = numberParts[0]
+    integerPart = integerPart.split("").reverse().join(""); // 1234 => 4321, para ficar mais fácil adicionar os pontos nas centenas
+    let newIntegerPart = "", newFractionalPart = ""    
+        
+    for(let i = 0; i < integerPart.length; i++){
+        newIntegerPart += integerPart[i]
+        if((i + 1)%3 == 0 && i != integerPart.length - 1 && n > 0){newIntegerPart += "."}
+    }
+    
+    if(numberParts.length > 1){ // Verifica se há casa decimal
+        newFractionalPart = (Math.floor(Number("0." + numberParts[1])*100)).toString() // Formata para dois algarismos significativos
+        if(newFractionalPart.length == 1){newFractionalPart = "0" + newFractionalPart} // Adciona o zero a esquerda caso menor do que 10
+    }
+    else{newFractionalPart = "00"} // Não havendo, atribui 00
+        
+    return(`R$ ${newIntegerPart.split("").reverse().join("")},${newFractionalPart}`)
+}
+
+window.datetime = function datetime(ms){
+    const dat = new Date(Number(ms))
+    let day = dat.getDate()
+    let month = dat.getMonth()
+    let year = dat.getFullYear()
+    let newDay, newMonth
+
+    if(day < 10){newDay = "0" + day}
+    else{newDay = day}
+
+    if(month < 9){newMonth = "0" + (month + 1)}
+    else{newMonth = month + 1}
+
+    let date = `${newDay}/${newMonth}/${year}`
+
+    let hour = dat.getHours()
+    let minutes = dat.getMinutes()
+    let newHour, newMinute
+
+    if(hour < 10){newHour = "0" + hour}
+    else{newHour = hour}
+
+    if(minutes < 10){newMinute = "0" + minutes}
+    else{newMinute = minutes}
+
+    let time = `${newHour}:${newMinute}`
+
+    return({date:date, time:time})
+}
 
 construct()

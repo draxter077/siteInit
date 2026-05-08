@@ -1,12 +1,24 @@
+import slogan from "./slogan/main.js"
+import services from "./services/main.js"
+
 export default function outdoor(){
     let style = `
         {
+            position:relative;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
             width:90%;
-            height:50dvh;
-            background:red;
+            text-align:center;
+            padding:7.5% 0px;
+        }
+        :responsive{
+            width:95%;
+            padding:30% 0px;
         }`
 
     const outdoor = cE("div",style)
-    outdoor.innerHTML = "Outdoor"
+    outdoor.appendChild(slogan())
+    outdoor.appendChild(services())
     return(outdoor)
 }

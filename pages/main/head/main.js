@@ -14,11 +14,12 @@ export default function head(){
             justify-content:space-around;
             width:100%;
             padding:10px 15px;
-            background:var(--colorWhite);
-            box-shadow:0px 0px 2px 1px var(--colorBlack);
+            background:var(--colorBlue);
+            box-shadow:0px 0px 3px 0px var(--colorBlack);
         }
         :responsive{
             flex-direction:column;
+            padding:10px 15px 15px;
         }`
 
     const head = cE("div",style)

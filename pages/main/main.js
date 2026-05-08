@@ -1,7 +1,8 @@
 import head from "./head/main.js"
 import outdoor from "./outdoor/main.js"
-import services from "./services/main.js"
 import who from "./who/main.js"
+import services from "./services/main.js"
+import method from "./method/main.js"
 import faq from "./faq/main.js"
 import foot from "./foot/main.js"
 import ph from "./ph/main.js"
@@ -23,9 +24,10 @@ export default function main(){
         "address":{
             "@type":"PostalAddress",
             "streetAddress":"Rua Atílio Bório, 80",
-            "addresLocality":"Curitiba",
+            "addressLocality":"Curitiba",
             "addressRegion":"Paraná",
-            "addressCountry":"BRA"
+            "addressCountry":"BRA",
+            "postalCode":"80050-250"
         },
         "sameAs":[
             "https://www.ph.net.br",
@@ -39,6 +41,7 @@ export default function main(){
 
     let style = `
         {
+            position:relative;
             display:flex;
             flex-direction:column;
             align-items:center;
@@ -49,8 +52,9 @@ export default function main(){
     const main = cE("div",style)
     main.appendChild(head())
     main.appendChild(outdoor())
-    main.appendChild(services())
     main.appendChild(who())
+    main.appendChild(services())
+    main.appendChild(method())
     main.appendChild(faq())
     main.appendChild(foot())
     main.appendChild(ph())
