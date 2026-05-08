@@ -106,7 +106,7 @@ const resetCss = `
         padding:0px;
         margin:0px;
     }`
-document.getElementsByTagName("style")[0].innerHTML = resetCss.replaceAll("\n","").replaceAll("\t","").replaceAll(" ","")
+document.getElementsByTagName("style")[1].innerHTML = resetCss.replaceAll("\n","").replaceAll("\t","").replaceAll(" ","")
 
 window.cE = function cE(t, stl){
     function addClass(){
@@ -117,7 +117,7 @@ window.cE = function cE(t, stl){
         // Separa os parâmetros do estilo principal
         stls = stl.replaceAll("{","").split("}")[0].split(";") // "atr:value"... o último elemento é "" devido ao split
         // Organiza os estilos já salvos na tag style
-        let stylesInTag = document.getElementsByTagName("style")[0].innerHTML
+        let stylesInTag = document.getElementsByTagName("style")[1].innerHTML
         stylesInTag = stylesInTag.split("}") // .name{atr:value além do resetCss
         // Separa os nomes dos pares de atributos
         let classNamesInTag = []
@@ -135,7 +135,7 @@ window.cE = function cE(t, stl){
             if(boo != -1){classNames += ` ${classNamesInTag[boo]}`}
             else{
                 let cn = randomName(classNamesInTag)
-                document.getElementsByTagName("style")[0].innerHTML += `.${cn}{${stls[i]};}`
+                document.getElementsByTagName("style")[1].innerHTML += `.${cn}{${stls[i]};}`
                 classNames += ` ${cn}`
             }
         }
@@ -145,19 +145,19 @@ window.cE = function cE(t, stl){
                 let spec = stl.split("}")[i]
                 // Encontra o tipo do específico e busca por similares
                 if(spec.split(" ")[0] == "@keyframes"){
-                    document.getElementsByTagName("style")[0].innerHTML += spec.replaceAll("[","{").replaceAll("]","}") + "}"
+                    document.getElementsByTagName("style")[1].innerHTML += spec.replaceAll("[","{").replaceAll("]","}") + "}"
                 }
                 else if(spec.split("{")[0] == ":responsive"){ // CONTINUAR DESENVOLVENDO
                     let stlsR = spec.split("{")[1].split(";")
                     for(let k = 0; k < stlsR.length - 1; k++){
                         let cn = randomName(classNamesInTag)
-                        document.getElementsByTagName("style")[0].innerHTML += `@media screen and (max-width:1000px){.${cn}{${stlsR[k]};}}`
+                        document.getElementsByTagName("style")[1].innerHTML += `@media screen and (max-width:1000px){.${cn}{${stlsR[k]};}}`
                         classNames += ` ${cn}`
                     }
                 }
                 else if(spec.split("{")[0].split("::").length > 0){ // CONTINUAR DESENVOLVENDO
                     let cn = randomName(classNamesInTag)
-                    document.getElementsByTagName("style")[0].innerHTML += `.${cn}${spec}}`
+                    document.getElementsByTagName("style")[1].innerHTML += `.${cn}${spec}}`
                     classNames += ` ${cn}`
                 }
                 else if(spec.split("{")[0].split(":").length > 1){ // CONTINUAR DESENVOLVENDO
@@ -165,7 +165,7 @@ window.cE = function cE(t, stl){
                     let stlsX = spec.split("{")[1].split(";")
                     for(let k = 0; k < stlsX.length - 1; k++){
                         let cn = randomName(classNamesInTag)
-                        document.getElementsByTagName("style")[0].innerHTML += `.${cn}:${xPseudo}{${stlsX[k]};}`
+                        document.getElementsByTagName("style")[1].innerHTML += `.${cn}:${xPseudo}{${stlsX[k]};}`
                         classNames += ` ${cn}`
                     }
                 }
@@ -207,54 +207,9 @@ window.whatsapp_url = "https://wa.me"
 window.instagram_url = "https://www.instagram.com/phwebsoftware"
 // axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 
-window.stringifyNumber = function stringifyNumber(n){
-    let numberParts = n.toString().split(".")
-    let integerPart = numberParts[0]
-    integerPart = integerPart.split("").reverse().join(""); // 1234 => 4321, para ficar mais fácil adicionar os pontos nas centenas
-    let newIntegerPart = "", newFractionalPart = ""    
-        
-    for(let i = 0; i < integerPart.length; i++){
-        newIntegerPart += integerPart[i]
-        if((i + 1)%3 == 0 && i != integerPart.length - 1 && n > 0){newIntegerPart += "."}
-    }
-    
-    if(numberParts.length > 1){ // Verifica se há casa decimal
-        newFractionalPart = (Math.floor(Number("0." + numberParts[1])*100)).toString() // Formata para dois algarismos significativos
-        if(newFractionalPart.length == 1){newFractionalPart = "0" + newFractionalPart} // Adciona o zero a esquerda caso menor do que 10
-    }
-    else{newFractionalPart = "00"} // Não havendo, atribui 00
-        
-    return(`R$ ${newIntegerPart.split("").reverse().join("")},${newFractionalPart}`)
-}
-
-window.datetime = function datetime(ms){
-    const dat = new Date(Number(ms))
-    let day = dat.getDate()
-    let month = dat.getMonth()
-    let year = dat.getFullYear()
-    let newDay, newMonth
-
-    if(day < 10){newDay = "0" + day}
-    else{newDay = day}
-
-    if(month < 9){newMonth = "0" + (month + 1)}
-    else{newMonth = month + 1}
-
-    let date = `${newDay}/${newMonth}/${year}`
-
-    let hour = dat.getHours()
-    let minutes = dat.getMinutes()
-    let newHour, newMinute
-
-    if(hour < 10){newHour = "0" + hour}
-    else{newHour = hour}
-
-    if(minutes < 10){newMinute = "0" + minutes}
-    else{newMinute = minutes}
-
-    let time = `${newHour}:${newMinute}`
-
-    return({date:date, time:time})
-}
-
 construct()
+
+let l = document.getElementById("loading")
+l.style.opacity = 0
+await new Promise(resolve => setTimeout(resolve, 1100))
+document.body.removeChild(l)
