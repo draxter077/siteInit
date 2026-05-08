@@ -9,6 +9,21 @@ export default function value(v){
         }`
 
     const value = cE("div",style)
-    value.innerHTML = v
+    value.innerHTML = "+0"
+    value.id = randomName([])
+
+    window.addEventListener(
+        "scroll",
+        async function a(){
+            let e = document.getElementById(value.id)
+            if(window.scrollY > e.offsetTop - window.innerHeight){
+                for(let i = 0; i <= v; i++){
+                    value.innerHTML = `+${i}`
+                    await new Promise(r => setTimeout(r, 2000/v));
+                }
+                this.window.removeEventListener("scroll",a)
+            }
+        }
+    )
     return(value)
 }

@@ -19,8 +19,8 @@ export default function stats(){
         }`
 
     const stats = cE("div",style)
-    stats.appendChild(stat(`+${(new Date().getFullYear()-2020)}`,"Anos de experiência"))
-    stats.appendChild(stat("+30","Empresas satisfeitas"))
-    stats.appendChild(stat("+100","Sites ativos"))
+    stats.appendChild(stat((new Date().getFullYear()-2020),"Anos de experiência"))
+    stats.appendChild(stat(30,"Empresas satisfeitas"))
+    stats.appendChild(stat(100,"Sites ativos"))
     return(stats)
 }

@@ -20,6 +20,8 @@ export function randomName(names){
     return(name)
 }
 
+window.randomName = randomName
+
 // Cria a style tag e a popula com reset.css
 document.getElementsByTagName("head")[0].appendChild(document.createElement("style"))
 const resetCss = `
