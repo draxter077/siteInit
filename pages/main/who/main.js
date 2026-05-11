@@ -1,5 +1,4 @@
 import about from "./about/main.js"
-import stats from "./stats/main.js"
 
 export default function who(){
     let style = `
@@ -13,6 +12,5 @@ export default function who(){
     const who = cE("div",style)
     who.id = "who"
     who.appendChild(about())
-    who.appendChild(stats())
     return(who)
 }

@@ -15,7 +15,7 @@ export default function sitemap(){
         }`
 
     const sitemap = cE("div",style)
-    sitemap.appendChild(link("https://www.ph.net.br/cliente", "Área do cliente"))
-    sitemap.appendChild(link("https://www.ph.net.br/admin", "Área do administrador"))
+    sitemap.appendChild(link("/", "Área 1"))
+    sitemap.appendChild(link("/", "Área 2"))
     return(sitemap)
 }

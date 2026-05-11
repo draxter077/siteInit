@@ -7,8 +7,8 @@ export default function question(q){
             display:flex;
             flex-direction:column;
             width:49%;
-            background:var(--colorDarkerBlue);
-            box-shadow:0px 0px 3px 0px var(--colorBlue);
+            background:var(--colorWhite);
+            box-shadow:0px 0px 3px 0px var(--colorWhite);
             padding:10px 15px;
             border-radius:15px;
             margin:5px 0px;

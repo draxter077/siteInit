@@ -11,27 +11,29 @@ export default function main(){
     const SD = { // Padrão em todo main de página
         "@context":"https://schema.org",
         "@type":"Organization",
-        "name":"Ph Web Software",
-        "alternateName":"Ph",
-        "url":"https://www.ph.net.br",
-        "logo":"https://www.ph.net.br/assets/logo.jpg",
-        "image":"https://www.ph.net.br/assets/logo.jpg",
-        "email":"contato@ph.net.br",
-        "telephone":"+55 (41) 99171-8360",
-        "slogan":"Transformamos sua ideia em uma realidade no mundo digital",
-        "description":"Uma empresa focada em desenvolvimento web",
-        "areaServed":"BRA",
+        "name":"",
+        "alternateName":"",
+        "url":"",
+        "logo":"",
+        "taxID":"",
+        "image":"",
+        "email":"",
+        "telephone":"",
+        "slogan":"",
+        "description":"",
+        "areaServed":"BR",
         "address":{
             "@type":"PostalAddress",
-            "streetAddress":"Rua Atílio Bório, 80",
-            "addressLocality":"Curitiba",
-            "addressRegion":"Paraná",
-            "addressCountry":"BRA",
-            "postalCode":"80050-250"
+            "streetAddress":"",
+            "addressLocality":"",
+            "addressRegion":"",
+            "addressCountry":"BR",
+            "postalCode":""
         },
         "sameAs":[
-            "https://www.ph.net.br",
-            "https://www.instagram.com/phwebsoftware"
+            "",
+            instagram_url,
+            whatsapp_url
         ]
     }
     const script = document.createElement('script')

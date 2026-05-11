@@ -3,9 +3,10 @@ export default function link(n,id){
         {
             position:relative;
             font-size:21px;
+            font-weight:900;
             padding:2px 7px 2px;
             margin:0px 0px 0px 10px;
-            color:var(--colorWhite);
+            color:var(--colorBlack);
             cursor:pointer;
         }
         :responsive{
@@ -19,14 +20,13 @@ export default function link(n,id){
             left:0%;
             z-index:-1;
             content:"";
-            width:2px;
-            height:100%;
-            background:var(--colorWhite);
-            transition:width 0.25s;
+            width:0px;
+            height:2px;
+            background:var(--colorBlack);
+            transition:width 0.5s;
         }
         :hover::after{
             width:100%;
-            background:var(--colorDarkerBlue);
         }`
 
     const link = cE("div",style)

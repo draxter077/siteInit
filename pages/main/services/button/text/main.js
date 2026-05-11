@@ -9,6 +9,6 @@ export default function text(){
         }`
 
     const text = cE("div",style)
-    text.innerHTML = "Fale com a Ph"
+    text.innerHTML = "Fale com a NOME_EMPRESA"
     return(text)
 }

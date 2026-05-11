@@ -11,6 +11,6 @@ export default function detail(){
         }`
 
     const detail = cE("div",style)
-    detail.innerHTML = `Focados em criação de sites profissionais, que expressem a identidade do seu projeto sem deixar de gerar resultado e conexão com seus clientes. Nossos sites são de alta performance, desenvolvidos segundo as últimas recomendações de SEO (Google) e UX (experiência de usuário) e otimizados para a geração de leads, fortalecendo o crescimento do seu negócio`
+    detail.innerHTML = `TEXTO DESCRIÇÃO DA EMPRESA, COM DESCRIÇÃO DE ATIVIDADES E MENÇÃO DE PÚBLICO ALVO`
     return(detail)
 }

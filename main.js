@@ -71,8 +71,7 @@ const resetCss = `
     :root{
     	--colorWhite:rgb(245,245,245);
     	--colorBlack:rgb(20,20,20);
-        --colorBlue:rgb(56,182,255);
-        --colorDarkerBlue:rgb(20,30,40);
+        --colorBluePh:rgb(56,182,255);
         --colorGreenWhatsApp:rgb(37,211,102);
     }
     @font-face{
@@ -82,7 +81,7 @@ const resetCss = `
     }
     body{
     	box-sizing:border-box;
-    	font-family:"Garet";
+    	font-family:system-ui;
     	background:var(--colorBlack);
     	cursor:default;
 	    user-select:none;
@@ -189,7 +188,7 @@ window.construct = function construct(d){
         if(window.location.href.split("br/")[1] != undefined && window.location.href.split("br/")[1] != ""){
             let path = window.location.href.split("br/")[1]
             root.innerHTML=path
-            // if(path.split("?")[0] == "finalizarpagamento"){
+            // if(path == "teste/teste"){
             //     root.appendChild(finalizarpagamento(path.split("?")[1].split("&")[0]))
             // }
             // else{
@@ -201,12 +200,11 @@ window.construct = function construct(d){
         }
     }
     // else{
-    //     if(d.page == "client"){root.appendChild(client(d.data))}
-    //     if(d.page == "admin"){root.appendChild(admin(d.data))}
+    //     if(d.page == "teste"){root.appendChild(page(d.data))}
     // }
 }
 
-window.api_url = "https://ace-chimp-merry.ngrok-free.app/ph"
+// window.api_url = "https://ace-chimp-merry.ngrok-free.app/ph"
 window.whatsapp_url = "https://wa.me"
 window.instagram_url = "https://www.instagram.com/phwebsoftware"
 //axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"

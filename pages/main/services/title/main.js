@@ -6,15 +6,12 @@ export default function title(){
             text-align:right;
             width:100%;
         }
-        >span{
-            color:var(--colorBlue);
-        }
         :responsive{
             font-size:24px;
             text-align:center;
         }`
 
     const title = cE("div",style)
-    title.innerHTML = "Não importa o tamanho da sua necessidade...<br><span>Temos o que você precisa</span>"
+    title.innerHTML = "TÍTULO DOS SERVIÇOS"
     return(title)
 }

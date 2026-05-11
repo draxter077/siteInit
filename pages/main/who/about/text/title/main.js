@@ -2,7 +2,7 @@ export default function title(){
     let style = `
         {
             font-size:30px;
-            color:var(--colorBlue);
+            color:var(--colorWhite);
         }
         :responsive{
             font-size:26px;
@@ -10,6 +10,6 @@ export default function title(){
         }`
 
     const title = cE("div",style)
-    title.innerHTML = `Transformamos sua ideia em uma realidade no mundo digital`
+    title.innerHTML = `SLOGAN`
     return(title)
 }

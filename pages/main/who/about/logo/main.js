@@ -2,15 +2,15 @@ export default function logo(){
     let style = `
         {
             width:10%;
-            box-shadow:0px 0px 3px 0px var(--colorWhite);
-            border:5px solid var(--colorWhite);
+
+            color:var(--colorWhite);
         }
         :responsive{
             display:none;
         }`
 
     const logo = cE("img",style)
-    logo.src = "https://www.ph.net.br/assets/logo.jpg"
-    logo.alt = "Logotipo da Ph Web Software"
+    logo.src = "/assets"
+    logo.alt = "Logotipo da NOME_EMPRESA"
     return(logo)
 }

@@ -3,7 +3,7 @@ export default function text(){
         {
             font-size:18px;
             margin:0px 0px 0px 20px;
-            color:var(--colorWhite);
+            color:var(--colorBlack);
             font-weight:900;
         }
         :responsive{
@@ -11,6 +11,6 @@ export default function text(){
         }`
 
     const text = cE("div",style)
-    text.innerHTML = `Ph Web Software`
+    text.innerHTML = `NOME DA EMPRESA`
     return(text)
 }

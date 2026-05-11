@@ -2,11 +2,13 @@ export default function copyright(){
     let style = `
         {
             font-size:15px;
-            color:var(--colorWhite);
+            font-weight:900;
+            text-align:center;
+            color:var(--colorBlack);
             margin:20px 0px 0px 0px;
         }`
 
     const copyright = cE("div",style)
-    copyright.innerHTML = `Ph Web Software © ${new Date().getFullYear()} Todos os direitos reservados`
+    copyright.innerHTML = `00.000.000/0001-00 © ${new Date().getFullYear()} | Todos os direitos reservados`
     return(copyright)
 }

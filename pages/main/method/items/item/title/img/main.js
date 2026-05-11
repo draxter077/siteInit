@@ -4,6 +4,8 @@ export default function img(src){
             height:32px;
             margin:0px 10px 0px 0px;
             filter:invert(1);
+
+            background:green;
         }
         :responsive{
             height:26px;

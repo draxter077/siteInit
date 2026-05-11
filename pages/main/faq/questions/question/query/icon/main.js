@@ -3,7 +3,7 @@ export default function icon(){
         {
             height:20px;
             transition:all 0.5s;
-            filter:invert(1);
+            filter:invert(0);
         }`
 
     const icon = cE("img",style)

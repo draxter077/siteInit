@@ -2,7 +2,7 @@ export default function text(t){
     let style = `
         {
             font-size:21px;
-            color:var(--colorWhite);
+            color:var(--colorBlack);
             font-weight:900;
             width:80%;
         }

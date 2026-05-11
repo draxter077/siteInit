@@ -4,8 +4,8 @@ export default function title(){
             font-size:32px;
             color:var(--colorWhite);
             font-weight:900;
-            border-right:1px solid var(--colorBlue);
-            border-left:1px solid var(--colorBlue);
+            border-right:1px solid var(--colorWhite);
+            border-left:1px solid var(--colorWhite);
             padding:10px 30px;
         }
         :responsive{

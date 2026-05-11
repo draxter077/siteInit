@@ -13,12 +13,28 @@ export default function questions(){
         }`
 
     const questions = cE("div",style)
+    const SD = {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+            {
+                "@type":"Question",
+                "name":"",
+                "acceptedAnswer":{
+                    "@type":"Answer",
+                    "text":""
+                }
+            }
+        ]
+        
+    }
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(SD)
+    document.head.appendChild(script)
+
     let qs = [
-        {question:"Teste",answer:"Teste Teste Teste Teste Teste Teste"},
-        {question:"Teste",answer:"Teste Teste Teste Teste Teste Teste"},
-        {question:"Teste",answer:"Teste Teste Teste Teste Teste Teste"},
-        {question:"Teste",answer:"Teste Teste Teste Teste Teste Teste"},
-        {question:"Teste",answer:"Teste Teste Teste Teste Teste Teste"}
+        {question:"Teste",answer:"Teste teste teste teste"},
     ]
 
     for(let i = 0; i < qs.length; i++){

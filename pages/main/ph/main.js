@@ -11,7 +11,7 @@ export default function ph(){
             justify-content:center;
             width:100%;
             padding:10px 15px;
-            background:linear-gradient(90deg,var(--colorBlue) 40%,var(--colorBlack) 50%);
+            background:linear-gradient(90deg,var(--colorBluePh) 40%,var(--colorBlack) 50%);
             background-size:300%;
             background-position:100%;
             transition:all 1s;
@@ -32,7 +32,7 @@ export default function ph(){
         "scroll",
         function a(){
             const p = document.getElementById(ph.id)
-            if(window.scrollY + window.innerHeight >= p.offsetTop + p.offsetHeight){
+            if(window.scrollY + window.innerHeight >= p.offsetTop){
                 p.style = "background-position:0%;"
                 window.removeEventListener("scroll", a)
             }
