@@ -1,9 +1,9 @@
 export default function icon(){
     let style = `
         {
-            height:20px;
+            height:18px;
             transition:all 0.5s;
-            filter:invert(0);
+            filter:invert(1);
         }`
 
     const icon = cE("img",style)

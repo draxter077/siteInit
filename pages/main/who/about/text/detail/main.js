@@ -1,16 +1,13 @@
 export default function detail(){
     let style = `
         {
-            font-size:18px;
+            font-size:16px;
             margin:10px 0px 0px 0px;
             text-align:justify;
-            color:var(--colorWhite);
-        }
-        :responsive{
-            font-size:16px;
+            color:white;
         }`
 
     const detail = cE("div",style)
-    detail.innerHTML = `TEXTO DESCRIÇÃO DA EMPRESA, COM DESCRIÇÃO DE ATIVIDADES E MENÇÃO DE PÚBLICO ALVO`
+    detail.innerHTML = `Descrição geral da empresa`
     return(detail)
 }

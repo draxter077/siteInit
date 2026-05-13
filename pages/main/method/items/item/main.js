@@ -7,7 +7,7 @@ export default function item(i){
             display:flex;
             flex-direction:column;
             align-items:flex-start;
-            border-top:1px solid var(--colorBlue);
+            border-top:1px solid white;
             padding:10px 15px;
             width:75%;
         }

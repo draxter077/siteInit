@@ -11,8 +11,8 @@ export default function method(){
             margin:5% 0px 0px 0px;
             border-radius:5px;
             padding:20px 25px;
-            background:var(--colorWhite);
-            box-shadow:0px 0px 3px 0px var(--colorWhite);
+            background:red;
+            box-shadow:0px 0px 3px 0px red;
             opacity:0;
             transform:translateY(50%);
             transition:all 0.5s;
@@ -26,7 +26,11 @@ export default function method(){
     method.id = "method"
     method.appendChild(title())
     method.appendChild(items([
-        {img:"/assets/",title:"TÍTULO DO MÉTODO",description:"BREVE DESCRIÇÃO"}
+        {img:"",title:"Diferencial",description:"Descrição"},
+        {img:"",title:"Diferencial",description:"Descrição"},
+        {img:"",title:"Diferencial",description:"Descrição"},
+        {img:"",title:"Diferencial",description:"Descrição"},
+        {img:"",title:"Diferencial",description:"Descrição"}
     ]))
 
     window.addEventListener(

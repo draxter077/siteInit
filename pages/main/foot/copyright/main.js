@@ -4,7 +4,7 @@ export default function copyright(){
             font-size:15px;
             font-weight:900;
             text-align:center;
-            color:var(--colorBlack);
+            color:white;
             margin:20px 0px 0px 0px;
         }`
 

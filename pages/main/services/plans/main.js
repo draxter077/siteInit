@@ -1,4 +1,4 @@
-export default function options(){
+export default function plans(){
     let style = `
         {
             display:flex;
@@ -9,13 +9,14 @@ export default function options(){
             margin:2.5% 0px 0px 0px;
 
             background:red;
+            height:50svh;
         }
         :responsive{
             flex-direction:column;
             align-items:center;
         }`
 
-    const options = cE("div",style)
-    options.innerHTML = "OPÇÕES DE SERVIÇOS"
-    return(options)
+    const plans = cE("div",style)
+    plans.innerHTML = 'Ofertas'
+    return(plans)
 }

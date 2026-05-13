@@ -1,7 +1,7 @@
 export default function outdoor(){
     let style = `
         {
-            position:relative;
+
             display:flex;
             flex-direction:column;
             align-items:center;
@@ -9,7 +9,6 @@ export default function outdoor(){
             text-align:center;
             padding:7.5% 0px;
 
-            color:var(--colorWhite);
             background:red;
         }
         :responsive{

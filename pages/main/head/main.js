@@ -14,8 +14,8 @@ export default function head(){
             justify-content:space-around;
             width:100%;
             padding:10px 15px;
-            background:var(--colorWhite);
-            box-shadow:0px 0px 3px 0px var(--colorWhite);
+            background:green;
+            box-shadow:0px 0px 3px 0px green;
         }
         :responsive{
             flex-direction:column;

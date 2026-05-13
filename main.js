@@ -1,4 +1,5 @@
 import main from "./pages/main/main.js"
+import admin from "./pages/admin/main.js"
 
 export function randomName(names){
     const chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
@@ -181,33 +182,31 @@ window.cE = function cE(t, stl){
     return(el)
 }
 
-window.construct = function construct(d){
+window.construct = async function construct(d){
     const root = document.getElementById("root")
-    root.innerHTML = ""
     if(d == undefined){
-        if(window.location.href.split("br/")[1] != undefined && window.location.href.split("br/")[1] != ""){
+        root.innerHTML = ""
+        if(window.location.href.split("br/")[1]){
             let path = window.location.href.split("br/")[1]
-            root.innerHTML=path
-            // if(path == "teste/teste"){
-            //     root.appendChild(finalizarpagamento(path.split("?")[1].split("&")[0]))
-            // }
-            // else{
-            //     root.appendChild(main())
-            // }
+            if(path == "admin"){root.appendChild(admin())}
+            else{root.appendChild(main())}
         }
-        else{
-            root.appendChild(main())
-        }
+        else{root.appendChild(main())}
     }
-    // else{
-    //     if(d.page == "teste"){root.appendChild(page(d.data))}
-    // }
+    else{
+        root.style.opacity = 0
+        await new Promise(r => setTimeout(r,600))
+        root.innerHTML = ""
+        if(d.page == "admin"){root.appendChild(admin(d.data))}
+        await new Promise(r => setTimeout(r,100))
+        root.style.opacity = 1
+    }
 }
 
-// window.api_url = "https://ace-chimp-merry.ngrok-free.app/ph"
-window.whatsapp_url = "https://wa.me"
-window.instagram_url = "https://www.instagram.com/phwebsoftware"
-//axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
+window.api_url = "https://ace-chimp-merry.ngrok-free.app/"
+window.whatsapp_url = "https://wa.me/"
+window.instagram_url = "https://www.instagram.com/"
+axios.defaults.headers.common["ngrok-skip-browser-warning"] = "69420"
 
 construct()
 

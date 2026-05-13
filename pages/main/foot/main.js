@@ -10,9 +10,9 @@ export default function foot(){
             align-items:center;
             width:100%;
             height:fit-content;
-            background:var(--colorWhite);
+            background:green;
             margin:5% 0px 0px 0px;
-            padding:2.5% 5% 1%;
+            padding:2% 5% 1%;
         }
         :responsive{
             margin:10% 0px 0px 0px;

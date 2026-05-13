@@ -1,5 +1,5 @@
 import title from "./title/main.js"
-import options from "./options/main.js"
+import plans from "./plans/main.js"
 import button from "./button/main.js"
 
 export default function services(){
@@ -22,7 +22,7 @@ export default function services(){
     const services = cE("div",style)
     services.id = "services"
     services.appendChild(title())
-    services.appendChild(options())
+    services.appendChild(plans())
     services.appendChild(button())
 
     window.addEventListener(

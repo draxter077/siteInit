@@ -1,14 +1,11 @@
 export default function text(t){
     let style = `
         {
-            font-size:18px;
+            font-size:16px;
             text-align:justify;
-            color:var(--colorBlack);
+            color:var(--colorWhite);
             width:100%;
             padding:2%;
-        }
-        :responsive{
-            font-size:16px;
         }`
 
     const text = cE("div",style)

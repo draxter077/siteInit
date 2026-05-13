@@ -34,7 +34,7 @@ export default function questions(){
     document.head.appendChild(script)
 
     let qs = [
-        {question:"Teste",answer:"Teste teste teste teste"},
+        {question:"Questão teste",answer:"Resposta teste"},
     ]
 
     for(let i = 0; i < qs.length; i++){

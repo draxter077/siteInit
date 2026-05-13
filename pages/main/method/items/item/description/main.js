@@ -1,12 +1,11 @@
 export default function description(d){
     let style = `
         {
-            font-size:16px;
+            font-size:14px;
             color:var(--colorBlue);
             padding:0px 0px 0px 5%;
         }
         :responsive{
-            font-size:14px;
             padding:0px 0px 0px 10%;
         }`
 

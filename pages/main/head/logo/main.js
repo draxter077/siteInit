@@ -1,7 +1,8 @@
 export default function logo(){
     let style = `
         {
-            height:60px;
+            height:50px;
+            border:2px solid var(--colorWhite);
         }
         :responsive{
             height:75px;
@@ -10,6 +11,6 @@ export default function logo(){
 
     const logo = cE("img",style)
     logo.src = "/assets/"
-    logo.alt = "Logotipo da NOME_EMPRESA"
+    logo.alt = "Logotipo da NomeEmpresa"
     return(logo)
 }

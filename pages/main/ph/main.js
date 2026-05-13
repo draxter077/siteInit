@@ -23,7 +23,6 @@ export default function ph(){
 
     const ph = cE("a",style)
     ph.href = "https://www.ph.net.br"
-    ph.target = "_blank"
     ph.id = randomName([])
     ph.appendChild(text())
     ph.appendChild(logo())

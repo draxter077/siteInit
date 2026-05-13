@@ -15,7 +15,7 @@ export default function sitemap(){
         }`
 
     const sitemap = cE("div",style)
-    sitemap.appendChild(link("/", "Área 1"))
-    sitemap.appendChild(link("/", "Área 2"))
+    sitemap.appendChild(link("", "Link 1"))
+    sitemap.appendChild(link("", "Link 2"))
     return(sitemap)
 }
