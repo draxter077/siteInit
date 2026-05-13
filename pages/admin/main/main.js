@@ -1,5 +1,6 @@
 import head from "./head/main.js"
 import status from "./status/main.js"
+import sqlQuery from "./sqlQuery/main.js"
 import databases from "./databases/main.js"
 import foot from "./foot/main.js"
 
@@ -20,6 +21,7 @@ export default function main(d){
     const main = cE("div",style)
     main.appendChild(head())
     main.appendChild(status())
+    main.appendChild(sqlQuery())
     main.appendChild(databases())
     main.appendChild(foot())
     return(main)
