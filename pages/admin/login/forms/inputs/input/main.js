@@ -17,5 +17,6 @@ export default function input(p){
 
     const input = cE("input",style)
     input.placeholder = p
+    if(p=="Senha"){input.type = "password"}
     return(input)
 }
